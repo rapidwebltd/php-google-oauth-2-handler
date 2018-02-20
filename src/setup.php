@@ -26,7 +26,7 @@ $clientId = trim(readline('Google Client ID: '));
 $clientSecret = trim(readline('Google Client Secret: '));
 echo PHP_EOL;
 
-echo 'You need to select the scopes you need acces to. Go to the';
+echo 'You need to select the scopes you need access to. Go to the';
 echo PHP_EOL;
 echo 'following URL, and enter the scopes you require, ending with';
 echo PHP_EOL;
