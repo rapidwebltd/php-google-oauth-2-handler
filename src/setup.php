@@ -26,10 +26,30 @@ $clientId = trim(readline('Google Client ID: '));
 $clientSecret = trim(readline('Google Client Secret: '));
 echo PHP_EOL;
 
-$scopes = ['https://www.googleapis.com/auth/userinfo.profile', 'https://www.googleapis.com/auth/contacts', 'https://www.googleapis.com/auth/contacts.readonly'];
+echo 'You need to select the scopes you need acces to. Go to the';
+echo PHP_EOL;
+echo 'following URL, and enter the scopes you require, ending with';
+echo PHP_EOL;
+echo 'a blank new line.';
+echo PHP_EOL.PHP_EOL;
+
+echo 'https://developers.google.com/identity/protocols/googlescopes';
+echo PHP_EOL.PHP_EOL;
+
+$scopes = [];
+
+while(true) {
+    $scope = trim(readline('Scope '.(count($scopes)+1).': '));
+    if ($scope) {
+        $scopes[] = $scope;
+    } else {
+        break;
+    }
+}
 
 $googleOAuth2Handler = new GoogleOAuth2Handler($clientId, $clientSecret, $scopes);
 
+echo PHP_EOL;
 echo 'Now, go to the following URL, sign in to your Google Account,';
 echo PHP_EOL;
 echo 'and copy-paste the auth code you receive below.';
@@ -62,7 +82,7 @@ echo '$clientSecret = \''.$clientSecret.'\';';
 echo PHP_EOL;
 echo '$refreshToken = \''.$refreshToken.'\';';
 echo PHP_EOL;
-echo '$scopes       = []; // Set required scopes. Available scopes: https://developers.google.com/identity/protocols/googlescopes';
+echo '$scopes       = [\''.implode('\', \'', $scopes).'\'];';
 echo PHP_EOL.PHP_EOL;
 echo '$googleOAuth2Handler = new GoogleOAuth2Handler($clientId, $clientSecret, $scopes, $refreshToken);';
 echo PHP_EOL.PHP_EOL;
