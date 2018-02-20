@@ -12,5 +12,10 @@ composer require rapidwebltd/php-google-oauth-2-handler
 
 If you have never used the Composer dependency manager before, head to the [Composer website](https://getcomposer.org/) for more information on how to get started.
 
+## Setup
+
+*TODO*
+
 ## Usage
 
+*TODO*
