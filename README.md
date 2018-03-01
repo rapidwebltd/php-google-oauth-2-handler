@@ -14,7 +14,7 @@ If you have never used the Composer dependency manager before, head to the [Comp
 
 ## Dependents
 
-This handler is designed to be used by other packages to implement API clients that interact with Google's OAuth APIs. Visit the following URL to see all
+This handler is designed to be used by other packages to implement API clients that interact with Google's OAuth 2 APIs. Visit the following URL to see all
 the packages that make use of this handler.
 
 [https://packagist.org/packages/rapidwebltd/php-google-oauth-2-handler/dependents](https://packagist.org/packages/rapidwebltd/php-google-oauth-2-handler/dependents)
