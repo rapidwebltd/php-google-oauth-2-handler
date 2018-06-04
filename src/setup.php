@@ -14,7 +14,8 @@ echo PHP_EOL.PHP_EOL;
 
 echo 'Go to the following URL to setup a new or existing project.';
 echo PHP_EOL;
-echo 'When asked about credentials, you should setup OAuth credentials.';
+echo 'When asked about credentials, you should setup OAuth credentials';
+echo 'stating you will be calling the API from a \'non-UI\' application.';
 echo PHP_EOL;
 echo 'When done, enter the client ID and client secret below.';
 echo PHP_EOL.PHP_EOL;
