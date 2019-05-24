@@ -26,6 +26,8 @@ echo PHP_EOL.PHP_EOL;
 $clientId = trim(readline('Google Client ID: '));
 $clientSecret = trim(readline('Google Client Secret: '));
 echo PHP_EOL;
+$redirectUri = trim(readline('redirectUri: '));
+echo PHP_EOL;
 
 echo 'You need to select the scopes you need access to. Go to the';
 echo PHP_EOL;
@@ -48,7 +50,7 @@ while(true) {
     }
 }
 
-$googleOAuth2Handler = new GoogleOAuth2Handler($clientId, $clientSecret, $scopes);
+$googleOAuth2Handler = new GoogleOAuth2Handler($clientId, $clientSecret, $scopes, $redirectUri);
 
 echo PHP_EOL;
 echo 'Now, go to the following URL, sign in to your Google Account,';
