@@ -52,10 +52,10 @@ class GoogleOAuth2Handler
         return $accessToken['refresh_token'];
     }
 
-    public function performRequest($method, $url, $body = null)
+    public function performRequest($method, $url, $body = null, $options = [])
     {
         $httpClient = $this->client->authorize();
-        $request = new Request($method, $url, [], $body);
+        $request = new Request($method, $url, $options, $body);
         $response = $httpClient->send($request);
         return $response;
     }
