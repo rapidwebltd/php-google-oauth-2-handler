@@ -11,7 +11,7 @@
     ],
     "require": {
         "google/apiclient": "^2.2",
-        "guzzlehttp/guzzle": "^6.3"
+        "guzzlehttp/guzzle": ">=6.3"
     },
     "autoload": {
         "psr-4": {
