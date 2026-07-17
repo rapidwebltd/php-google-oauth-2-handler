@@ -25,6 +25,7 @@ echo PHP_EOL.PHP_EOL;
 
 $clientId = trim(readline('Google Client ID: '));
 $clientSecret = trim(readline('Google Client Secret: '));
+$redirectUri = trim(readline('Authorized redirect URI: '));
 echo PHP_EOL;
 
 echo 'You need to select the scopes you need access to. Go to the';
@@ -48,19 +49,19 @@ while(true) {
     }
 }
 
-$googleOAuth2Handler = new GoogleOAuth2Handler($clientId, $clientSecret, $scopes);
+$googleOAuth2Handler = new GoogleOAuth2Handler($clientId, $clientSecret, $scopes, '', $redirectUri);
 
 echo PHP_EOL;
 echo 'Now, go to the following URL, sign in to your Google Account,';
 echo PHP_EOL;
-echo 'and copy-paste the auth code you receive below.';
+echo 'and copy the `code` query parameter from the redirect URL below.';
 echo PHP_EOL.PHP_EOL;
 
 echo $googleOAuth2Handler->authUrl;
 echo PHP_EOL.PHP_EOL;
 
 $authCode = trim(readline('Auth Code: '));
-echo PHP_EOL;PHP_EOL;
+echo PHP_EOL.PHP_EOL;
 
 $refreshToken = $googleOAuth2Handler->getRefreshToken($authCode);
 
@@ -83,7 +84,9 @@ echo '$clientSecret = \''.$clientSecret.'\';';
 echo PHP_EOL;
 echo '$refreshToken = \''.$refreshToken.'\';';
 echo PHP_EOL;
+echo '$redirectUri  = \''.$redirectUri.'\';';
+echo PHP_EOL;
 echo '$scopes       = [\''.implode('\', \'', $scopes).'\'];';
 echo PHP_EOL.PHP_EOL;
-echo '$googleOAuth2Handler = new GoogleOAuth2Handler($clientId, $clientSecret, $scopes, $refreshToken);';
+echo '$googleOAuth2Handler = new GoogleOAuth2Handler($clientId, $clientSecret, $scopes, $refreshToken, $redirectUri);';
 echo PHP_EOL.PHP_EOL;

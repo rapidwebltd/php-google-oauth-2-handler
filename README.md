@@ -21,8 +21,28 @@ the packages that make use of this handler.
 
 ## Setup
 
-*TODO*
+Create OAuth client credentials in Google Cloud and register a redirect URI. Then run:
+
+```bash
+php vendor/rapidwebltd/php-google-oauth-2-handler/src/setup.php
+```
+
+The retired out-of-band OAuth flow is not used. After authorizing, copy the
+`code` query parameter from the registered redirect URL back into the setup
+command.
 
 ## Usage
 
-*TODO*
+```php
+use RapidWeb\GoogleOAuth2Handler\GoogleOAuth2Handler;
+
+$handler = new GoogleOAuth2Handler(
+    $clientId,
+    $clientSecret,
+    $scopes,
+    $refreshToken,
+    $redirectUri
+);
+
+$response = $handler->performRequest('GET', 'https://people.googleapis.com/v1/people/me');
+```
