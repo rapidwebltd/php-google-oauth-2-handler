@@ -10,8 +10,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php: ['7.4', '8.5']
-        guzzle: ['^6.3', '^7.0']
+        php: ['8.1', '8.5']
 
     steps:
       - uses: actions/checkout@v4
@@ -19,6 +18,5 @@ jobs:
         with:
           php-version: ${{ matrix.php }}
           coverage: none
-      - run: composer require --no-update "guzzlehttp/guzzle:${{ matrix.guzzle }}"
       - run: composer update --prefer-dist --no-interaction
       - run: find src -name '*.php' -print0 | xargs -0 -n1 php -l
